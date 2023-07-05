@@ -36,7 +36,7 @@
         :append-inner-icon="visible ? 'mdi-eye-off' : 'mdi-eye'"
         :type="visible ? 'text' : 'password'"
         variant="underlined"
-        :rules="[required]"
+        :rules="[required, rules.minPasswords]"
         v-model="form.firstPassword"
         label="Password"
         required
@@ -47,7 +47,7 @@
         :append-inner-icon="visible1 ? 'mdi-eye-off' : 'mdi-eye'"
         :type="visible1 ? 'text' : 'password'"
         variant="underlined"
-        :rules="[required]"
+        :rules="[required, rules.minPasswords]"
         v-model="form.secondPassword"
         label="Confirm Password"
         required
@@ -106,6 +106,7 @@ export default {
           return regex.test(value) || "Only text characters are allowed";
         },
         minPhone: (value) => value.length >= 9 || "Min 9 Numbers",
+        minPasswords: (value) => value.length >= 9 || "Min 9 Characters",
         email: (value) => {
           const pattern =
             /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
