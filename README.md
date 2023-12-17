@@ -1,4 +1,4 @@
-# stree-task
+# mini-project
 
 ## Project setup
 ```
